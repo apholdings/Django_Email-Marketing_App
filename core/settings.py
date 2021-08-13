@@ -49,6 +49,11 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
+NPM_BIN_PATH = "/usr/bin/npm"
+#NPM_BIN_PATH = r"C:\Program Files (x86)\nodejs\npm.cmd"
+
+EMAIL_HOST_USER='mail@vudera.com'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
