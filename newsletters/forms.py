@@ -11,4 +11,4 @@ class NewsletterUserSignUpForm(forms.ModelForm):
 class NewsletterCreationForm(forms.ModelForm):
     class Meta:
         model = Newsletter
-        fields=['name','subject','body','email']
+        fields=['name','subject','body','email', 'status']

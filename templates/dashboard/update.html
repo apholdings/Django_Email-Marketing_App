@@ -123,13 +123,8 @@
           <div class="-ml-4 -mt-2 flex items-center justify-between flex-wrap sm:flex-nowrap">
             <div class="ml-4 mt-2">
               <h3 class="text-lg leading-6 font-medium text-gray-900">
-                Newsletters
+                Edit newsletter
               </h3>
-            </div>
-            <div class="ml-4 mt-2 flex-shrink-0">
-              <a href="{% url 'dashboard:create' %}" class="relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
-                Create new email
-              </a>
             </div>
           </div>
         </div>
@@ -143,57 +138,36 @@
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
               <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                 <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+
+                  <form method="POST">
+                  {% csrf_token %}
+                  <label  class="block text-sm font-medium dark:text-dark-txt text-gray-700">
+                    Name
+                  </label>
+                  {{form.name}}
                   
-                  <table class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-gray-50">
-                      <tr>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                          Name
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                          Subject
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                          Date Created
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                          Status
-                        </th>
-                        <th scope="col" class="relative px-6 py-3">
-                          <span class="sr-only">Edit</span>
-                        </th>
-                      </tr>
-                    </thead>
+                  <label  class="block text-sm font-medium dark:text-dark-txt text-gray-700">
+                    Subject
+                  </label>
+                  {{form.subject}}
 
-                    <tbody class="bg-white divide-y divide-gray-200">
-                      {% for newsletter in newsletters %}
-                        <tr>
-                          
-                          <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                            <a href="{% url 'dashboard:detail' newsletter.id %}">
-                            {{newsletter.name}}
-                            </a>
-                          </td>
-                          
-                          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            {{newsletter.subject}}
-                          </td>
-                          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            {{newsletter.created}}
-                          </td>
-                          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            {{newsletter.status}}
-                          </td>
-                          <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                          </td>
-                        </tr>
-                      {% endfor %}
-                      
+                  <label  class="block text-sm font-medium dark:text-dark-txt text-gray-700">
+                    Body
+                  </label>
+                  {{form.body}}
 
-                      <!-- More people... -->
-                    </tbody>
-                  </table>
+                  <label  class="block text-sm font-medium dark:text-dark-txt text-gray-700">
+                    Email
+                  </label>
+                  {{form.email}}
+
+                  <label  class="block text-sm font-medium dark:text-dark-txt text-gray-700">
+                    Status
+                  </label>
+                  {{form.status}}
+
+                  <button class="px-3 py-2 bg-blue-500 rounded-lg text-white" type="submit">Update</button>
+                  </form>
 
                 </div>
               </div>
