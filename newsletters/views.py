@@ -1,4 +1,4 @@
-from django.core.checks import messages
+from django.contrib import messages
 from newsletters.models import NewsletterUser
 from django.shortcuts import render
 from .forms import NewsletterUserSignUpForm
